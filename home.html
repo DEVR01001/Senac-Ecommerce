@@ -11,6 +11,7 @@
 </head>
 <body>
 
+    
     <nav class="navbar navbar-expand-lg bg-body-tertiary" >
         <div class="container-fluid" style="background-color: rgb(255, 255, 255);">
           <a class="navbar-brand" href="#">
@@ -19,7 +20,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse align-itens-center" id="navbarText">
+          <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 justify-content-start">
               <li class="nav-item mx-4">
                 <a class="nav-link fs-5" style="font-weight: 500;" aria-current="page" href="#">Home</a>
@@ -27,20 +28,20 @@
               <li class="nav-item mx-4">
                 <a class="nav-link fs-5" style="font-weight: 500;" href="#">Favoritos</a>
               </li>
-              <li class="nav-item mx-4 ">
+              <li class="nav-item mx-1">
                 <a class="nav-link fs-5" style="font-weight: 500;" href="#">
-                  <i class="bi bi-cart" style="font-size: 1.3rem;"></i>
+                  <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
                   Carrinho
                 </a>
               </li>
-          
+  
               <li class="nav-item dropdown ms-auto mx-5">
                 <button class="btn btn-dark dropdown-toggle fs-5" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-person" style="font-size: 1.5rem;"></i> Login
                 </button>
                 <ul class="dropdown-menu  dropdown-menu-dark">
-                  <li><a class="dropdown-item fs-5" href="login.html">Login</a></li>
-                  <li><a class="dropdown-item fs-5" href="cadastro.html">Cadastro</a></li>
+                    <li><a class="dropdown-item fs-5" href="login.html">Login</a></li>
+                    <li><a class="dropdown-item fs-5" href="cadastro.html">Cadastro</a></li>
                 </ul>
               </li>
             </ul>
@@ -49,45 +50,11 @@
       </nav>
 
 
-      <main class="container">
 
-        <h1 class="my-4">Cadastro</h1>
-
-        <div id="teste"></div>
-    
-        <form action="">
-    
-            <div class="row my-5 g-5">
-              <div class="col-12">
-                <input  id="nome" type="text" class="form-control form-control-lg" id="inputAddress" placeholder="Username">
-            </div>
-
-                <div class="col-12">
-                    <input  id="email" type="text" class="form-control form-control-lg" id="inputAddress" placeholder="E-mail">
-                </div>
-                <div class="col-12">
-                    <input  id="senha" type="password" class="form-control form-control-lg" id="inputAddress" placeholder="Senha">
-                </div>
-            </div>
-            <div class="col-12">
-                <button  id="btn-cadastrar" type="button" class="btn btn-primary btn-lg my-2">Cadastrar</button>
-              </div>
-    
-        </form>
-
-        <h6 id="msg-sucess" class="btn btn-success"></h6>
-        <a href="login.html" class="text-secondary p-3 d-flex justify-content-center">Já possui cadastro? Faça login!</a>
-
-    
-
-
-    </main>
-    
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-
-    <script src="js/cadastro_user.js"></script>
+        
 </body>
 </html>
