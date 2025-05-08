@@ -85,7 +85,7 @@ fetch(`https://fakestoreapi.com/products/${id[0]}`)
                 'image' : `${produto.image}`,
                 'nome' : `${produto.title}`,
                 'price' : `${produto.price}`,
-                'quantidade' : `${1}`
+                'quantidade' : 1
             }
         
 
@@ -106,17 +106,27 @@ function AddCart (ObjectProd){
 
 
         let cart = getCart()
-        
+
+
         cart.push(ObjectProd)
 
         sessionStorage.setItem('cart', JSON.stringify(cart))
 
+
+        
     }else{
 
-        var catObject = getCart()
+        let catObject = getCart()
+      
+
+       
+        const produtoMudar = catObject.filter( item  => item.id === ObjectProd.id )
+
+        // produtoMudar.quantidade = 1
+
+        console.log(catObject, produtoMudar.quantidade = 5)
 
 
-        catObject.push(ObjectProd)
 
     }
 
@@ -128,6 +138,5 @@ function getCart(){
 
     return JSON.parse(sessionStorage.getItem('cart') || '[]')
 }
-
 
 
