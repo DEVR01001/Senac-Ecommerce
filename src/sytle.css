@@ -121,6 +121,7 @@
         height: 400px;
         background-color: aqua;
         border-radius: 5px;
+        object-fit: cover;
     }
 
     & .container_text-prod{
@@ -242,6 +243,18 @@
 
 
 
+
+
+.img-cart{
+    display: flex;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+
+}
+
+.fl
 
 
 
