@@ -32,14 +32,19 @@ BtnCad.addEventListener('click', () =>{
         return dados.json()
     })
 
+ 
 
+    const novoId = 1;            
 
     sessionStorage.setItem("nome", `${InputNome.value}`)
     sessionStorage.setItem("email", `${InputEmail.value}`)
     sessionStorage.setItem("senha", `${InputSenha.value}`)
+    sessionStorage.setItem("id", `${novoId}`)
 
 
-    console.log(data.id)
+
+
+
     
     MsgSucess.innerText='Cadastro Realizado com Sucesso'
 

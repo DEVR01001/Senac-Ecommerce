@@ -21,25 +21,14 @@ componenteNav = () =>{
                 <li class="nav-item mx-4">
                     <a class="nav-link fs-5" style="font-weight: 500;" aria-current="page" href="home.html">Home</a>
                 </li>
-                <li class="nav-item mx-4">
-                    <a class="nav-link fs-5" style="font-weight: 500;" href="favoritos.html">Favoritos</a>
-                </li>
-                <li class="nav-item mx-1">
-                    <a class="nav-link fs-5" style="font-weight: 500;" href="cart.html">
-                    <i class="bi bi-cart" style="font-size: 1.3rem;"></i>
-                    Carrinho
-                    </a>
-                </li>
-
                 <li class="nav-item dropdown  ms-auto mx-5">
-                    <button class="btn btn-dark dropdown-toggle mx-1 fs-10" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person" style="font-size: 1rem;"></i>Perfil
+                    <button class="btn btn-dark dropdown-toggle fs-10" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person" style="font-size: 1rem;"></i> Login
                     </button>
                     <ul class="dropdown-menu  dropdown-menu-dark">
-                        <li><a class="dropdown-item fs-10" href="perfil.html">Editar Perfil</a></li>
-                        <li><a class="dropdown-item fs-10" href="cadastro.html">Sair</a></li>
+                        <li><a class="dropdown-item fs-10" href="login.html">Login</a></li>
+                        <li><a class="dropdown-item fs-10" href="cadastro.html">Cadastro</a></li>
                     </ul>
-                    
                 </li>
                 </ul>
             </div>

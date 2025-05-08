@@ -7,6 +7,12 @@ const BtnLogin = document.getElementById('login')
 let MsgSucess = document.getElementById('msg-sucess')
 let MsgErro = document.getElementById('msg-erro')
 
+console.log(sessionStorage.getItem("nome"))
+console.log(sessionStorage.getItem("email"))
+console.log(sessionStorage.getItem("senha"))
+console.log(sessionStorage.getItem("id"))
+
+
 
 BtnLogin.addEventListener('click', () =>{
 
@@ -44,7 +50,7 @@ BtnLogin.addEventListener('click', () =>{
 
 
 
-            fetch('https://fakestoreapi.com/users/1')
+            fetch(`https://fakestoreapi.com/users/${IDAuth}`)
             .then( response => response.json())
             .then( data => console.log(data))
 
