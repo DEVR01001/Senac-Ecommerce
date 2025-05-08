@@ -39,8 +39,8 @@ componenteSoloProd = (data) =>{
                 <div class="price_prod"> <span> Preço: </span> ${data.price} R$</div>
                 <div class='conatiner_btn_prod'> 
 
-                    <a href=""  id='add_cart' class="btn-add-cart">Add <i class="bi bi-cart"></i></a>
-                    <a href="" class="btn-add-cart"><i class="bi bi-heart"></i></a>
+                    <button href=""  id='add_cart' class="btn-add-cart">Add <i class="bi bi-cart"></i></button>
+                    <a href="" class="btn-favorite"><i class="bi bi-heart"></i></a>
                 
                 </div>
             </div>
@@ -53,18 +53,7 @@ componenteSoloProd = (data) =>{
 
 
 
-function AddCart (idProd){
 
-
-    console.log( produtos['produto'] = idProd)
-    console.log( produtos['quantidade'] += 1)
-
-    JSON.stringify(produtos)
-
-
-    sessionStorage.setItem("cart", `${produtos}`)
-
-}
 
 
 
@@ -89,17 +78,56 @@ fetch(`https://fakestoreapi.com/products/${id[0]}`)
 
         if(!verifcarLogin()){
         }else{
-            AddCart(id[0])
-        }
 
+            var prod = {
+
+                'id' : `${produto.id}`,
+                'image' : `${produto.image}`,
+                'nome' : `${produto.title}`,
+                'price' : `${produto.price}`,
+                'quantidade' : `${1}`
+            }
         
 
+            AddCart(prod)
 
+        }
+
+    
 
     })
     
 })
 
 
+function AddCart (ObjectProd){
 
-console.log(sessionStorage.getItem('cart'))
+    if(getCart().length <= 0){
+
+
+        let cart = getCart()
+        
+        cart.push(ObjectProd)
+
+        sessionStorage.setItem('cart', JSON.stringify(cart))
+
+    }else{
+
+        var catObject = getCart()
+
+
+        catObject.push(ObjectProd)
+
+    }
+
+}
+
+
+
+function getCart(){
+
+    return JSON.parse(sessionStorage.getItem('cart') || '[]')
+}
+
+
+

@@ -186,7 +186,7 @@
        
     }
 
-    & .container_text-prod .conatiner_btn_prod a{
+    & .container_text-prod .conatiner_btn_prod .btn-add-cart{
         display: flex;
         background-color: #ee9209;
         font-weight: 600;
@@ -201,32 +201,41 @@
         transition: all 0.2s ease;
         text-decoration: none;
         color: white;
+        border: none;
+        outline: none;
     }
-    & .container_text-prod .conatiner_btn_prod a:hover{
+    
+    & .container_text-prod .conatiner_btn_prod .btn-add-cart:hover{
         background-color: transparent;
         border: 1px solid #d1d1d1;
         color: #3d3d3d;
     }
 
-    & .container_text-prod .conatiner_btn_prod a:nth-child(2){
+    & .container_text-prod .conatiner_btn_prod .btn-favorite{
         background-color: transparent;
         border: 1px solid #d1d1d1;
         width: 20%;
+        display: flex;
+        font-weight: 600;
+        border-radius: 5px;
+        width: 40%;
+        height: 45px;
+        justify-content: center;
+        align-items: center;
+        font-size: 27px;
+        gap: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        outline: none;
+        color: #a7a7a7;
     }
 
-    & .container_text-prod .conatiner_btn_prod a:nth-child(2):hover{
+    & .container_text-prod .conatiner_btn_prod .btn-favorite:hover{
         background-color: #3f71dd;
         color: white;
     }
-      & .container_text-prod .conatiner_btn_prod a:nth-child(2):hover i{
-        color: white;
-      }
 
-
-    & .container_text-prod .conatiner_btn_prod a:nth-child(2) i{
-        font-size: 25px;
-        color: #9b9b9b;
-    }
 
 
 }

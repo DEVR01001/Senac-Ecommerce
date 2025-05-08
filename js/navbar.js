@@ -37,7 +37,7 @@ componenteNav = () =>{
                     </button>
                     <ul class="dropdown-menu  dropdown-menu-dark">
                         <li><a class="dropdown-item fs-10" href="perfil.html">Editar Perfil</a></li>
-                        <li><a class="dropdown-item fs-10" href="cadastro.html">Sair</a></li>
+                        <li><a id='btn-sair' class="dropdown-item fs-10" >Sair</a></li>
                     </ul>
                     
                 </li>
@@ -52,4 +52,6 @@ componenteNav = () =>{
 
 
 DivNav.innerHTML = componenteNav()
+
+
 
