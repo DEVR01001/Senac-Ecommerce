@@ -28,7 +28,7 @@ const componenteSoloProd = (data) => {
                 <div class="price_prod"><span>Preço:</span> ${data.price} R$</div>
                 <div class="conatiner_btn_prod">
                     <button id="add_cart" class="btn-add-cart">Add <i class="bi bi-cart"></i></button>
-                    <a href="#" class="btn-favorite"><i class="bi bi-heart"></i></a>
+                    <a href="#" id='add_favorite' class="btn-favorite"><i class="bi bi-heart"></i></a>
                 </div>
             </div>
         </div>
@@ -40,12 +40,42 @@ let idUrl = window.location.search;
 const parametros = new URLSearchParams(idUrl);
 const id = parametros.get("id");
 
-// Faz a requisição para pegar os dados do produto
 fetch(`https://fakestoreapi.com/products/${id}`)
     .then(response => response.json())
     .then(produto => {
     
         DivSoloProd.innerHTML = componenteSoloProd(produto);
+
+        const BtnFavorite = document.getElementById('add_favorite')
+
+        BtnFavorite.addEventListener('click',()=>{
+
+            if (!verificarLogin()) {
+                return; 
+            } else {
+
+                let favoriteObjet = getFavorite()
+
+                const produtoFavoritado = favoriteObjet.filter(item => item.id === ObjectProd.id);
+
+                if (produtoFavoritado.length > 0) {
+                    alert('Produto já favoritado')
+                } else {
+
+              
+                    const prod = {
+                        id: `${produto.id}`,
+                        image: `${produto.image}`,
+                        nome: `${produto.title}`,
+                        price: `${produto.price}`,
+                        quantidade: 1
+                    };
+                    
+            
+                    AddFavorite(prod)
+                }
+            }
+        })
 
        
         const BtnAddCart = document.getElementById('add_cart');
@@ -93,3 +123,22 @@ function getCart() {
     return JSON.parse(sessionStorage.getItem('cart') || '[]');
 }
 
+
+function getFavorite() {
+    return JSON.parse(sessionStorage.getItem('favorite') || '[]');
+}
+
+
+
+
+function AddFavorite(ObjectProd){
+
+    let favorite = getFavorite(); 
+
+    favorite.push(ObjectProd);
+    alert('Produto adicionado nos favoritos')
+
+    sessionStorage.setItem('favorite', JSON.stringify(favorite));
+    
+
+}

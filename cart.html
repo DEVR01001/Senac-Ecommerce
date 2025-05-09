@@ -22,15 +22,19 @@
 
         <section id="cart_cont" class="cart_cont">
 
-            <table class="table table-hover">
+            <table class="table ">
                 <thead>
                     <tr>
                       <th scope="col"></th>
                       <th scope="col">Nome</th>
                       <th scope="col">Preço</th>
                       <th scope="col">Ações</th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
+                  <tbody id="table-id">
+
+                  </tbody>
 
 
                 
@@ -39,7 +43,13 @@
 
         </section>
 
-
+        <section class="container-btn-cart">
+          <div class="container-info-cart">
+            <p class="info-cart-text">Total: <span id="total-cart">/span></p>
+          </div>
+          <button id="finalizar-pedido" class="btn-finalizar-cart">Finalizar Pedido</button>
+        </section>
+        
 
     </main>
     

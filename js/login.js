@@ -1,80 +1,57 @@
+const BtnLogin = document.getElementById('login');
+let MsgSucess = document.getElementById('msg-sucess');
+let MsgErro = document.getElementById('msg-erro');
+
+BtnLogin.addEventListener('click', () => {
+  const InputEmail = document.getElementById('email').value.trim();
+  const InputSenha = document.getElementById('senha').value.trim();
+  const InputConfSenha = document.getElementById('conf-senha').value.trim();
 
 
+  if (InputEmail === "" || InputSenha === "" || InputConfSenha === "") {
+    MsgErro.innerText = 'Preencha todos os campos';
+    setTimeout(() => { MsgErro.innerText = ''; }, 2500);
+    return;
+  }
 
 
-
-const BtnLogin = document.getElementById('login')
-let MsgSucess = document.getElementById('msg-sucess')
-let MsgErro = document.getElementById('msg-erro')
-
-console.log(sessionStorage.getItem("nome"))
-console.log(sessionStorage.getItem("email"))
-console.log(sessionStorage.getItem("senha"))
-console.log(sessionStorage.getItem("id"))
+  if (InputSenha !== InputConfSenha) {
+    MsgErro.innerText = 'Senhas não estão corretas';
+    setTimeout(() => { MsgErro.innerText = ''; }, 2500);
+    return;
+  }
 
 
+  if (InputEmail === 'morrison@gmail.com' && InputSenha === '83r5^_') {
+    sessionStorage.setItem('admin', 'true');
+    MsgSucess.innerText = 'Login de Administrador realizado com sucesso';
 
-BtnLogin.addEventListener('click', () =>{
+    setTimeout(() => {
+      window.location.href = 'listar_produto.html';
+    }, 2000);
 
+  } else {
+  
+    const emailAuth = sessionStorage.getItem('email');
+    const senhaAuth = sessionStorage.getItem('senha');
+    const IDAuth = sessionStorage.getItem('id');
 
-    const InputEmail = document.getElementById('email').value
-    const InputSenha = document.getElementById('senha').value
-    const InputConfSenha = document.getElementById('conf-senha').value
+    if (InputEmail !== emailAuth || InputSenha !== senhaAuth) {
+      MsgErro.innerText = 'Email ou senha inválidos';
+      setTimeout(() => { MsgErro.innerText = ''; }, 2500);
+      return;
+    }
 
+    fetch(`https://fakestoreapi.com/users/${IDAuth}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        MsgSucess.innerText = 'Login Realizado com Sucesso';
+        sessionStorage.setItem('admin', 'false');
 
-    console.log(InputEmail)
-
-
-    
-    if(InputEmail.value === " " || InputSenha.value === " " || InputConfSenha.value === " " ){
-
-        MsgErro.innerText = 'Preencha todos os campos'
-
-    }else{
-
-        
-        let emailAuth= sessionStorage.getItem('email')
-        let senhaAuth= sessionStorage.getItem('senha')   
-        let IDAuth= sessionStorage.getItem('id')   
-
-        console.log(IDAuth)
-
-
-        if(InputEmail !=  emailAuth){
-
-            MsgErro.innerText = 'Email não está correto'
-        } else if(InputSenha != senhaAuth || InputSenha != InputConfSenha){
-            MsgErro.innerText = 'Senhas não estão corretas'
-            
-        }else{
-
-
-
-            fetch(`https://fakestoreapi.com/users/${IDAuth}`)
-            .then( response => response.json())
-            .then( data => console.log(data))
-
-            
-
-            MsgSucess.innerText='Login Realizado com Sucesso'
-            
-            setTimeout(() =>{
-
-                window.location.href = 'home.html'
-            }, 2000)
-
-
-
-        }
-
-        setTimeout(() =>{
-
-            MsgErro.innerHTML = ''
-
-        }, 2500)
-
-
-            
-        }
-
-})
+        setTimeout(() => {
+          window.location.href = 'home.html';
+        }, 2000);
+      });
+  }
+});

@@ -16,20 +16,18 @@ verifcarLogin()
 
 
 
-const DivCart =  document.getElementById('cart_cont')
-
-
-
-
-
-
+const DivCart =  document.getElementById('table-id')
 
 
 
 
 let componenteCartProd = () =>{
   
+  
     let cart = getCart()
+
+
+    atualizarTotal()
 
     console.log(cart)
 
@@ -38,22 +36,35 @@ let componenteCartProd = () =>{
       
       DivCart.innerHTML+= `
 
-        <tbody>
             <tr class='flew-cart'>
-              <th scope="row"><img class='img-cart' hrfe='${produto.image}'> </img></th>
+              <td scope="row"><img class='img-cart' src='${produto.image}'> </img></td>
               <td>${produto.nome}</td>
               <td>${produto.price}</td>
               <td>
-                  <button id='add_quant_cart'> <i class="bi bi-plus"></i></button>
-                  <span class='quantidade_cart' id='quant-cart'> </span>
-                   <button id='remove_quant_cart'> <i class="bi bi-dash"></i></button>
+                <div class='coantiner-btn-cat'> 
+                    <button data-id='${produto.id}' id='add_quant_cart'> <i class="bi bi-plus"></i></button>
+                    <span class='quantidade_cart' id='quant-cart'> ${produto.quantidade} </span>
+                    <button data-id='${produto.id}' id='sub_quant_cart'> <i class="bi bi-dash"></i></button>
+                  </div>
               </td>
               <td><i class="bi bi-x-lg"></i></td>
             </tr>
-        </tbody>
   
   
       `
+
+
+      const BtnSomarQuantidade =  document.querySelector('add_quant_cart')
+      const BtnSubtrairQuantidade =  document.querySelector('sub_quant_cart')
+      const DivQuantidade =  document.querySelector('quant-cart')
+
+      
+
+
+      
+
+
+
 
 
     });
@@ -71,3 +82,26 @@ function getCart() {
   return JSON.parse(sessionStorage.getItem('cart') || '[]');
 }
 
+
+function atualizarTotal() {
+  const cart = getCart();
+  let total = 0;
+  cart.forEach(prod => {
+    total += prod.price * prod.quantidade;
+  });
+  document.getElementById('total-cart').innerText = `R$ ${total.toFixed(2)}`;
+}
+
+
+
+const BtnFinalizar = document.getElementById('finalizar-pedido')
+
+
+BtnFinalizar.addEventListener('click', ()=>{
+
+  alert('Pedido Finalizado')
+
+  sessionStorage.removeItem('cart')
+
+  window.location.href= 'home.html'
+})
