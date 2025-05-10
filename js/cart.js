@@ -24,7 +24,7 @@ let componenteCartProd = () => {
       <tr class='flew-cart'>
         <td><img class='img-cart' src='${produto.image}'></td>
         <td>${produto.nome}</td>
-        <td>R$ ${produto.price.toFixed(2)}</td>
+        <td>R$ ${produto.price}</td>
         <td>
           <div class='coantiner-btn-cat'> 
             <button class='btn-add' data-id='${produto.id}'><i class="bi bi-plus"></i></button>

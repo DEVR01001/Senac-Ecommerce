@@ -333,6 +333,13 @@ body {
 }
 
 
+
+.btn-remove{
+    display: flex;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
 .bi-x-lg{
     display: flex;
     background-color: rgb(226, 92, 92);
@@ -344,6 +351,7 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    
 }
 
 .bi-x-lg:hover{
